@@ -1,27 +1,60 @@
-import React, { Component } from "react";
-import 'antd/dist/antd.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react'
+//import {Col, Row} from "antd";
+import {
+  Layout, Menu, Breadcrumb, Icon,
+} from 'antd';
 
-import Navbar from "./Navbar";	//Шапка
-import SiderMenu from "./SiderMenu"; //Боковое меню
-import NewRepository from "./NewRepository";
-import SystemInformation from "./SystemInformation";
+import ClassTreeView from './ClassTreeView'
+import PropertyEditor from './PropertyEditor'
 
-class App extends Component {
-	render() {
-		return (
-			<React.Fragment>
-				<Navbar />
-				<SiderMenu />
-				<Router>
-					<Switch>
-						<Route exact path="/" component={SystemInformation} />
-						<Route path="/NewRep" component={NewRepository} />
-					</Switch>
-				</Router>
-			</React.Fragment>
-		);
-	}
-}
+const { Header, Content, Sider } = Layout;
+const { SubMenu } = Menu;
 
-export default App;
+const App = () => {
+	return (
+	<Layout>
+		<Header className="header">
+	      {/* 
+	      //  TODO : left side navigation menu 
+	      */}
+	      <div className="logo" />
+	      <Menu
+	        mode="horizontal"
+	        defaultSelectedKeys={['2']}
+	        style={{ lineHeight: '64px' }}
+	      >
+	        <Menu.Item key="1">nav 1</Menu.Item>
+	        <Menu.Item key="2">nav 2</Menu.Item>
+	        <Menu.Item key="3">nav 3</Menu.Item>
+	      </Menu>
+	    </Header>
+		<Layout>
+			<Sider width={200} 
+				   style={{ 
+				    background: '#fff',
+					overflow: 'auto',
+					height: '100vh',
+					position: 'fixed'
+				   }}>
+				<ClassTreeView />
+	  	 	</Sider>
+		  	<Layout style={{ marginLeft: 300, padding: '0 24px 24px' }}>
+		        <Breadcrumb style={{ margin: '16px 0' }}>
+		          <Breadcrumb.Item>Home</Breadcrumb.Item>
+		          <Breadcrumb.Item>List</Breadcrumb.Item>
+		          <Breadcrumb.Item>App</Breadcrumb.Item>
+		        </Breadcrumb>
+		        <Content style={{
+		           margin: '24px 16px 0', 
+		           overflow: 'initial'
+		        }}
+		        >
+		  	 		<PropertyEditor />
+		 		</Content>
+		 	</Layout>
+		</Layout>
+	</Layout>
+	);
+};
+
+export default App

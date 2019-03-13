@@ -1,20 +1,19 @@
 /*
     Страница Repositories/New repository
+    Baisarov A.A. IU3-62
 */
-import React, { Component } from "react";
+import { storiesOf } from '@storybook/react';
+import React from "react";
 import { Layout } from 'antd';
 import { Select, Input, Button } from 'antd';
-
-import Pathinfo from "./PathInfo"; //home-list-app
 
 const { Content } = Layout;
 const Option = Select.Option;
 
-export default class NewRepository extends Component {
+class NewRepository extends React.Component {
     render() {
         return (
             <Layout style={MainLayoutStyle}>
-                <Pathinfo />
                 <Content style={ContentStyle}>
                     {/* 
                     <PropertyEditor />
@@ -66,7 +65,7 @@ export default class NewRepository extends Component {
 }
 
 const MainLayoutStyle = {
-    marginLeft: 200,
+    marginLeft: 0,
     padding: '0',
 }
 
@@ -116,3 +115,8 @@ const ButtNextStyle = {
 const ButtCancelStyle = {
     marginLeft: '77.5%',
 }
+
+storiesOf('Issue #1', module)
+  .add('NewRepository', () => (
+    <NewRepository />
+  ))
