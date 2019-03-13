@@ -56,25 +56,28 @@ class Demo extends React.Component {
           {...formItemLayout}
           hasFeedback
         >
-          <span style={{ marginRight: '10px' }}> Download format: </span>
+          <span style={{ marginRight: '10px', fontWeight: "bold" }}> Download format: </span>
             <Select labelInValue defaultValue={{ key: "RDF/XML" }} style={{ width: 200 }}>
               <Option value="N-Triples">N-Triples</Option>
               <Option value="RDF/XML">RDF/XML</Option>
-              <Option value="lucy">Lucy</Option>
+              <Option value="Turtle">Turtle</Option>
+              <Option value="N3">N3</Option>
+              <Option value="RDF/JSON">RDF/JSON</Option>
+              <Option value="TriG">TriG</Option>
+              <Option value="N-Quads">N-Quads</Option>
+              <Option value="BinaryRDF">BinaryRDF</Option>
+              <Option value="TriX">TriX</Option>
+              <Option value="JSON-LD">JSON-LD</Option>
             </Select>
-        </Form.Item>
 
-        <Form.Item
-          wrapperCol={{ span: 12, offset: 6 }}
-        >
-          <Button type="primary" htmlType="submit">Download</Button>
+            <Button type="primary" htmlType="submit" style={{marginLeft: "15px"}}>Download</Button>
         </Form.Item>
 
         <Form.Item
           {...formItemLayout}
           hasFeedback
         >
-          <span style={{ marginRight: '10px' }}> Results per page: </span>
+          <span style={{ marginRight: '10px', fontWeight: "bold" }}> Results per page: </span>
           <Select labelInValue defaultValue={{ key: 10 }} style={{ width: 75 }}>
             <Option value="all">All</Option>
             <Option value="10">10</Option>
@@ -94,8 +97,5 @@ class Demo extends React.Component {
   }
 }
 
-//const WrappedDemo = Form.create({ name: 'validate_other' })(Demo);
-
-//ReactDOM.render(<WrappedDemo />, document.getElementById('container'));
 storiesOf("Export Repository", module).add("info", () => <Demo />);
           
