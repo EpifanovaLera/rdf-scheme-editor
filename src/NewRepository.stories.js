@@ -11,6 +11,29 @@ const { Content } = Layout;
 const Option = Select.Option;
 
 class NewRepository extends React.Component {
+
+    listOfOption = [
+        'In Memory Store',
+        'In Memory Store RDF Schema',
+        'In Memory Store RDF Schema and Direct Type Hierarchy',
+        'In Memory Java Store with basic SPIN support',
+        'In Memory Store with Lucene support',
+        'In Memory Store with RDFS+SPIN support',
+        'In Memory Store with RDFS+SPIN+Lucene support',
+        'In Memory Store Custom Graph Query Inference',
+        'Native Java Store',
+        'Native Java Store RDF Schema',
+        'Native Java Store RDF Schema and Direct Type Hierarchy',
+        'Native Java Store Custom Graph Query Inference',
+        'Native Java Store with basic SPIN support',
+        'Native Java Store with Lucene support',
+        'Native Java Store with RDFS+SPIN support',
+        'Native Java Storewith RDFS+SPIN+Lucene support',
+        'Remote RDF Store',
+        'SPARQL endpoint proxy',
+        'Federation Store',
+    ];
+
     render() {
         return (
             <Layout style={MainLayoutStyle}>
@@ -23,28 +46,12 @@ class NewRepository extends React.Component {
                     <hr />
 
                     <Select
-                        defaultValue="1"
+                        defaultValue="0"
                         style={SelectStyle}
                     >
-                        <Option value="1">In Memory Store</Option>
-                        <Option value="2">In Memory Store RDF Schema</Option>
-                        <Option value="3">In Memory Store RDF Schema and Direct Type Hierarchy</Option>
-                        <Option value="4">In Memory Java Store with basic SPIN support</Option>
-                        <Option value="5">In Memory Store with Lucene support</Option>
-                        <Option value="6">In Memory Store with RDFS+SPIN support</Option>
-                        <Option value="7">In Memory Store with RDFS+SPIN+Lucene support</Option>
-                        <Option value="8">In Memory Store Custom Graph Query Inference</Option>
-                        <Option value="9">Native Java Store</Option>
-                        <Option value="10">Native Java Store RDF Schema</Option>
-                        <Option value="11">Native Java Store RDF Schema and Direct Type Hierarchy</Option>
-                        <Option value="12">Native Java Store Custom Graph Query Inference</Option>
-                        <Option value="13">Native Java Store with basic SPIN support</Option>
-                        <Option value="14">Native Java Store with Lucene support</Option>
-                        <Option value="15">Native Java Store with RDFS+SPIN support</Option>
-                        <Option value="16">Native Java Storewith RDFS+SPIN+Lucene support</Option>
-                        <Option value="17">Remote RDF Store</Option>
-                        <Option value="18">SPARQL endpoint proxy</Option>
-                        <Option value="19">Federation Store</Option>
+                        {this.listOfOption.map((option, index) => (
+                            <Option value={index.toString()}> {option} </Option>
+                        ))}
                     </Select>
 
                     <br />
@@ -117,6 +124,6 @@ const ButtCancelStyle = {
 }
 
 storiesOf('Issue #1', module)
-  .add('NewRepository', () => (
-    <NewRepository />
-  ))
+    .add('NewRepository', () => (
+        <NewRepository />
+    ))
