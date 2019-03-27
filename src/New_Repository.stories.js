@@ -123,7 +123,7 @@ const ButtCancelStyle = {
     marginLeft: '77.5%',
 }
 
-storiesOf('Issue #1', module)
+storiesOf('Issue #_1', module)
     .add('NewRepository', () => (
         <NewRepository />
     ))
